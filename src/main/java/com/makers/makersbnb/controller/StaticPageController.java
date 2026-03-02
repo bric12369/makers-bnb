@@ -2,13 +2,17 @@ package com.makers.makersbnb.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class StaticPageController {
 
     @GetMapping("/")
-    public String landingPage() {
-        return "<h1>Welcome to MakersBnB!</h1>";
+    public ModelAndView landingPage() {
+        ModelAndView modelAndView = new ModelAndView("/LandingPage");
+        Integer nSpaces = 100;
+        modelAndView.addObject("nSpaces", nSpaces);
+        return modelAndView;
     }
 
     @GetMapping("/contact-us")
