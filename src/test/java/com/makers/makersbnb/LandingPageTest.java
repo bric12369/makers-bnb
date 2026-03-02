@@ -44,6 +44,6 @@ public class LandingPageTest {
     public void emailProvidedAtContactUs() {
         page.navigate("http://localhost:8080/contact-us");
         Locator pageBody = page.locator("body");
-        assertThat(pageBody).containsText("contact@makersbnb.co.uk");
+        assertThat(pageBody).containsText("Contact us at contact@makersbnb.co.uk");
     }
 }

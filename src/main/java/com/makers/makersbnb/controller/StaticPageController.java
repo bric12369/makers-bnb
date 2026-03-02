@@ -16,7 +16,7 @@ public class StaticPageController {
     }
 
     @GetMapping("/contact-us")
-    public String contactUs() {
-        return "<p>contact@makersbnb.co.uk</p>";
+    public ModelAndView contactUs() {
+        return new ModelAndView("ContactUs");
     }
 }

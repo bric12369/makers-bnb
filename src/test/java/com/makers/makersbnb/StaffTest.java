@@ -37,6 +37,13 @@ public class StaffTest {
     public void teamIsReturned() {
         page.navigate("http://localhost:8080/team");
         Locator pageBody = page.locator("body");
-        assertThat(pageBody).containsText("Toby, Katerina, Sandy");
+        assertThat(pageBody).containsText(
+                """
+                        Meet the Team:\s
+                        Toby\s
+                        Katerina\s
+                        Sandy\s
+                        """
+        );
     }
 }
