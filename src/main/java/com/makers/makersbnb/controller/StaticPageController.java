@@ -11,7 +11,9 @@ public class StaticPageController {
     public ModelAndView landingPage() {
         ModelAndView modelAndView = new ModelAndView("/LandingPage");
         Integer nSpaces = 100;
+        Integer nBookings = 123;
         modelAndView.addObject("nSpaces", nSpaces);
+        modelAndView.addObject("nBookings", nBookings);
         return modelAndView;
     }
 
