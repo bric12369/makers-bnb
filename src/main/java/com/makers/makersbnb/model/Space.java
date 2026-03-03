@@ -15,11 +15,13 @@ public class Space {
     private String name;
     private String description;
     private Integer price;
+    private String rules;
 
-    public Space(String name, String description, Integer price) {
+    public Space(String name, String description, Integer price, String rules) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.rules = rules;
     }
 
 }
