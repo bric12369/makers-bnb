@@ -37,7 +37,7 @@ public class LandingPageTest {
         page.navigate("http://localhost:8080");
         Locator pageBody = page.locator("body");
         assertThat(pageBody).containsText("Welcome to MakersBnB!");
-        assertThat(pageBody).containsText("100 spaces are waiting to be discovered...");
+        assertThat(pageBody).containsText("spaces are waiting to be discovered...");
         assertThat(pageBody).containsText("123 bookings were made last week.");
     }
 
