@@ -9,6 +9,8 @@
     <ul th:each="space: ${currentSpaces}">
         <li th:text="${space.name} + ' - ' + ${space.description} + ' - ' + '£' + ${space.price} + ' per night'"></li>
     </ul>
-<a href="/">Back</a>
+    <a href="/spaces/new">Add new space</a>
+    <br>
+    <a href="/">Back</a>
 </body>
 </html>
