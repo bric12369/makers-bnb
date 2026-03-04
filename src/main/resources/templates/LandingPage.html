@@ -7,6 +7,8 @@
 <body>
     <div sec:authorize="isAuthenticated()">
         Hello, you are logged in as <span sec:authentication="principal.attributes['email']"></span>
+        <br>
+        <a href="/logout">Logout</a>
     </div>
     <h1>Welcome to MakersBnB!</h1>
     <h3 th:text="${nSpaces} + ' spaces are waiting to be discovered...'"></h3>
