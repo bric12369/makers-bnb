@@ -4,10 +4,13 @@ import com.makers.makersbnb.model.Space;
 import com.makers.makersbnb.repository.SpaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.Optional;
 
 @RestController
 public class SpaceController {
@@ -21,6 +24,15 @@ public class SpaceController {
         Iterable<Space> currentSpaces = spaceRepository.findAll();
         spacesView.addObject("currentSpaces", currentSpaces);
         return spacesView;
+    }
+
+    @GetMapping("/spaces/{id}")
+    public ModelAndView spaceById(@PathVariable Long id) {
+        ModelAndView spaceByIdView = new ModelAndView("spaces/Space");
+        Optional<Space> optionalCurrentSpace = spaceRepository.findById(id);
+        Space currentSpace = optionalCurrentSpace.get();
+        spaceByIdView.addObject("currentSpace", currentSpace);
+        return spaceByIdView;
     }
 
     @GetMapping("/spaces/new")

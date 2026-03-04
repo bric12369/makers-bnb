@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MakersBnB | Space</title>
+</head>
+<body>
+    <h1 th:text="${currentSpace.name}" ></h1>
+    <h3 th:text="${currentSpace.description}"></h3>
+    <p th:if="${currentSpace.rules}" th:text="'Rules: ' + ${currentSpace.rules}"></p>
+    <p th:text="'£' + ${currentSpace.price} + ' per night'"></p>
+</body>
+</html>
