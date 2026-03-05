@@ -9,5 +9,11 @@
     <h3 th:text="${currentSpace.description}"></h3>
     <p th:if="${currentSpace.rules}" th:text="'Rules: ' + ${currentSpace.rules}"></p>
     <p th:text="'£' + ${currentSpace.price} + ' per night'"></p>
+    <br>
+    <h3>Bookings:</h3>
+    <ul th:each="booking : ${bookings}">
+        <li th:text="${booking.start_date} + ' - ' + ${booking.end_date}"></li>
+    </ul>
+    <a href="/spaces">Back</a>
 </body>
 </html>

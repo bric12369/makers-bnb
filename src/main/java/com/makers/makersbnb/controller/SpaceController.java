@@ -1,6 +1,8 @@
 package com.makers.makersbnb.controller;
 
+import com.makers.makersbnb.model.Booking;
 import com.makers.makersbnb.model.Space;
+import com.makers.makersbnb.repository.BookingRepository;
 import com.makers.makersbnb.repository.SpaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,8 @@ public class SpaceController {
 
     @Autowired
     SpaceRepository spaceRepository;
+    @Autowired
+    private BookingRepository bookingRepository;
 
     @GetMapping("/spaces")
     public ModelAndView spaces() {
@@ -31,7 +35,9 @@ public class SpaceController {
         ModelAndView spaceByIdView = new ModelAndView("spaces/Space");
         Optional<Space> optionalCurrentSpace = spaceRepository.findById(id);
         Space currentSpace = optionalCurrentSpace.get();
+        Iterable<Booking> bookings = bookingRepository.findBySpaceId(id);
         spaceByIdView.addObject("currentSpace", currentSpace);
+        spaceByIdView.addObject("bookings", bookings);
         return spaceByIdView;
     }
 
