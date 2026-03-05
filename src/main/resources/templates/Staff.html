@@ -6,10 +6,8 @@
 </head>
 <body>
     <h3>Meet the Team:</h3>
-    <ul>
-        <li>Toby</li>
-        <li>Katerina</li>
-        <li>Sandy</li>
+    <ul th:each="member : ${team}">
+        <li th:text="${member.getName()}"></li>
     </ul>
     <a href="/">Back</a>
 </body>
