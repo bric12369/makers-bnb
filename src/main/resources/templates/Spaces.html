@@ -7,7 +7,7 @@
 <body>
     <h1>Our Spaces:</h1>
     <ul th:each="space: ${currentSpaces}">
-        <li th:text="${space.name} + ' - ' + ${space.description} + ' - ' + '£' + ${space.price} + ' per night'"></li>
+        <a th:href="'/spaces/' + ${space.id}"><li th:text="${space.name} + ' - ' + ${space.description} + ' - ' + '£' + ${space.price} + ' per night'"></li></a>
         <ul th:if="${space.rules}">
             <li th:text="${space.rules}"></li>
         </ul>
