@@ -34,10 +34,13 @@ public class SpaceController {
     public ModelAndView spaceById(@PathVariable Long id) {
         ModelAndView spaceByIdView = new ModelAndView("spaces/Space");
         Optional<Space> optionalCurrentSpace = spaceRepository.findById(id);
+        Booking booking = new Booking();
+        booking.setSpaceId(id);
         Space currentSpace = optionalCurrentSpace.get();
         Iterable<Booking> bookings = bookingRepository.findBySpaceId(id);
         spaceByIdView.addObject("currentSpace", currentSpace);
         spaceByIdView.addObject("bookings", bookings);
+        spaceByIdView.addObject("booking", booking);
         return spaceByIdView;
     }
 
@@ -53,5 +56,11 @@ public class SpaceController {
     public RedirectView createSpace(Space space) {
         spaceRepository.save(space);
         return new RedirectView("/spaces");
+    }
+
+    @PostMapping("/bookings")
+    public ModelAndView createBooking(Booking booking) {
+        bookingRepository.save(booking);
+        return new ModelAndView("/BookingSuccessful");
     }
 }

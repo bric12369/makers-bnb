@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>MakersBnB | Space</title>
@@ -14,6 +14,18 @@
     <ul th:each="booking : ${bookings}">
         <li th:text="${booking.start_date} + ' - ' + ${booking.end_date}"></li>
     </ul>
+    <br>
+    <h3>New Booking:</h3>
+    <form th:action="@{/bookings}" th:object="${booking}" method="post">
+        <label th:for="start_date">From:</label>
+        <input type="date" th:field="*{start_date}"/> <br>
+        <label th:for="end_date">Until:</label>
+        <input type="date" th:field="*{end_date}"/> <br>
+        <input type="hidden" th:field="*{spaceId}" />
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset" />
+    </form>
+    <br>
     <a href="/spaces">Back</a>
 </body>
 </html>

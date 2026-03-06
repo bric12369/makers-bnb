@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "BOOKINGS")
@@ -15,12 +17,12 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String start_date;
-    private String end_date;
+    private LocalDate start_date;
+    private LocalDate end_date;
     @Column(name="space_id")
     private Long spaceId;
 
-    public void Booking(Long id, String start_date, String end_date, Long space_id){
+    public void Booking(Long id, LocalDate start_date, LocalDate end_date, Long space_id){
         this.id = id;
         this.start_date = start_date;
         this.end_date = end_date;
